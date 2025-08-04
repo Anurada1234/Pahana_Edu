@@ -124,7 +124,6 @@
   </style>
 </head>
 <body>
-
   <!-- Sidebar -->
   <nav id="sidebar" class="d-flex flex-column p-3">
     <a href="#" class="d-flex align-items-center mb-3 text-white text-decoration-none">
@@ -184,7 +183,6 @@
         </div>
       </div>
     </nav>
-
     <!-- Hero Slideshow -->
     <header id="hero" class="hero">
       <img

@@ -202,7 +202,7 @@
       <div class="hero-content">
         <h1 class="display-4">Welcome to Bookshop Billing</h1>
         <p class="lead">Effortless invoice management for your bookstore</p>
-        <a href="#invoices" class="btn btn-primary btn-lg">View Invoices</a>
+         <a href="<%= request.getContextPath() %>/ShowCustomerServlet" class="btn btn-info">View All Customers</a>
         <a href="<%=request.getContextPath()%>/ShowBookServlet" class="btn btn-info">View All Books</a>
         
       </div>

@@ -20,6 +20,7 @@ public class BookActionServlet extends HttpServlet {
 
         System.out.println("Action: " + action + ", itemCode: " + itemCode);
 
+        //this is for test pushing to 
         try {
             switch (action) {
                 case "insert":

@@ -95,22 +95,19 @@
     <hr />
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="customer.jsp" class="nav-link"><i class="bi bi-speedometer2 me-2"></i> Customer</a>
+        <a href="customer.jsp" class="nav-link">
+          <i class="bi bi-people me-2"></i> Customer
+        </a>
       </li>
       <li class="nav-item">
-        <a href="item.jsp" class="nav-link"><i class="bi bi-receipt me-2"></i> Item</a>
+        <a href="item.jsp" class="nav-link">
+          <i class="bi bi-book me-2"></i> Item
+        </a>
       </li>
       <li class="nav-item">
-        <a href="billing.jsp" class="nav-link"><i class="bi bi-info-circle me-2"></i> Billing</a>
-      </li>
-      <li class="nav-item">
-        <a href="#contact" class="nav-link"><i class="bi bi-envelope me-2"></i> Contact</a>
-      </li>
-      <li class="nav-item">
-        <a href="#reports" class="nav-link"><i class="bi bi-bar-chart-line me-2"></i> Reports</a>
-      </li>
-      <li class="nav-item">
-        <a href="#settings" class="nav-link"><i class="bi bi-gear me-2"></i> Settings</a>
+        <a href="billing.jsp" class="nav-link">
+          <i class="bi bi-cash-coin me-2"></i> Billing
+        </a>
       </li>
     </ul>
     <hr />
@@ -155,8 +152,12 @@
       <div class="hero-content">
         <h1 class="display-4">Welcome to Bookshop Billing</h1>
         <p class="lead">Effortless invoice management for your bookstore</p>
-        <a href="<%= request.getContextPath() %>/ShowCustomerServlet" class="btn btn-info">View All Customers</a>
-        <a href="<%=request.getContextPath()%>/ShowBookServlet" class="btn btn-info">View All Books</a>
+        <a href="<%= request.getContextPath() %>/ShowCustomerServlet" class="btn btn-info me-2">
+          <i class="bi bi-people me-1"></i> View All Customers
+        </a>
+        <a href="<%=request.getContextPath()%>/ShowBookServlet" class="btn btn-info">
+          <i class="bi bi-book me-1"></i> View All Books
+        </a>
       </div>
     </header>
 

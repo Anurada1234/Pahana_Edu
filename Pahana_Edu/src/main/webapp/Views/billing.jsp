@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ page import="model.BookBean,dao.BookDao" %>
 <%
     String itemCode = request.getParameter("itemCode");
@@ -7,37 +7,98 @@
         book = BookDao.getBookByItemCode(itemCode);
     }
 %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Billing – Pahana Bookshop</title>
+    <meta charset="UTF-8">
+    <title>Billing – Pahana Edu Bookshop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
     <style>
-        body { font-family: Arial; background: #f8f9fa; padding: 30px; }
-        form, table { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 15px #ccc; }
-        input[type=text], input[type=number] { width: 100%; padding: 8px; margin: 5px 0; }
-        input[type=submit] { background: green; color: white; padding: 10px 20px; border: none; border-radius: 5px; }
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            background: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            background-color: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+            max-width: 750px;
+            width: 100%;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .btn {
+            min-width: 120px;
+        }
     </style>
 </head>
 <body>
 
-<h2>Generate Bill</h2>
-<form method="get" action="billing.jsp">
-    <label>Enter Item Code:</label>
-    <input type="text" name="itemCode" value="<%= itemCode != null ? itemCode : "" %>" required />
-    <input type="submit" value="Search" />
-</form>
+<div class="card">
+    <h2 class="text-center mb-4">
+        <i class="bi bi-receipt-cutoff me-2"></i>Generate Bill
+    </h2>
 
-<% if (book != null) { %>
-<form action="<%= request.getContextPath() %>/BillingServlet" method="post">
-    <input type="hidden" name="itemCode" value="<%= book.getItem_code() %>"/>
-    <p><strong>Title:</strong> <%= book.getTitle() %></p>
-    <p><strong>Price:</strong> Rs. <%= book.getPrice() %></p>
-    <label>Enter Quantity:</label>
-    <input type="number" name="quantity" min="1" required />
-    <input type="submit" value="Generate Bill" />
-</form>
-<% } else if (itemCode != null) { %>
-<p style="color: red;">No book found with item code <%= itemCode %></p>
-<% } %>
+    <!-- Search Form -->
+    <form method="get" action="billing.jsp" class="mb-4">
+        <div class="mb-3">
+            <label class="form-label">Enter Item Code</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-upc-scan fs-5"></i></span>
+                <input type="text" class="form-control" name="itemCode" 
+                       value="<%= itemCode != null ? itemCode : "" %>" required>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-search"></i> Search
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <% if (book != null) { %>
+        <!-- Book Details & Billing Form -->
+        <form action="<%= request.getContextPath() %>/BillingServlet" method="post">
+            <input type="hidden" name="itemCode" value="<%= book.getItem_code() %>"/>
+            
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" class="form-control" value="<%= book.getTitle() %>" readonly>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Price (LKR)</label>
+                <input type="text" class="form-control" value="<%= book.getPrice() %>" readonly>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Enter Quantity</label>
+                <input type="number" class="form-control" name="quantity" min="1" required>
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-cash-stack me-1"></i> Generate Bill
+                </button>
+            </div>
+        </form>
+    <% } else if (itemCode != null) { %>
+        <div class="alert alert-danger text-center">
+            <i class="bi bi-exclamation-triangle me-2"></i>
+            No book found with item code <strong><%= itemCode %></strong>
+        </div>
+    <% } %>
+
+</div>
 
 </body>
 </html>

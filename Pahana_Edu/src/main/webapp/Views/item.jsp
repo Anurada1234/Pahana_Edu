@@ -20,6 +20,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative; /* required for absolute positioning */
     }
     .card {
       background-color: rgba(255,255,255,0.95);
@@ -33,13 +34,11 @@
     .mb-3 { margin-bottom: 0.5rem !important; }
     .input-group-text { padding: 0.3rem 0.5rem; }
     input, select { padding: 0.25rem 0.4rem !important; font-size: 0.9rem !important; }
-
-   
     .card h2 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
       padding: 0.5rem 1rem;
-      background: linear-gradient( #9999FF);
+      background: linear-gradient(#9999FF);
       color: white;
       text-align: center;
       border-radius: 10px;
@@ -50,24 +49,35 @@
       vertical-align: middle;
       margin-right: 0.3rem;
     }
-
-  
     .action-buttons {
       display: flex;
-      justify-content: center; /* center buttons horizontally */
-      gap: 5px;                /* small space between buttons */
-      flex-wrap: wrap;          /* wrap if screen is narrow */
+      justify-content: center;
+      gap: 5px;
+      flex-wrap: wrap;
       margin-top: 0.5rem;
     }
     .action-buttons .btn {
-      padding: 0.2rem 0.3rem;  /* smaller padding */
-      font-size: 0.8rem;       /* smaller font */
-      font-weight: 400;        /* normal weight */
-      border-width: 1px;       /* thinner border */
+      padding: 0.2rem 0.3rem;
+      font-size: 0.8rem;
+      font-weight: 400;
+      border-width: 1px;
+    }
+    /* Back button styling */
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
     }
   </style>
 </head>
 <body>
+
+<!-- Back Button -->
+<a href="dashboard.jsp" class="btn btn-outline-light back-btn">
+  <i class="bi bi-arrow-left-circle me-1"></i> Back
+</a>
+
 <div class="card">
   <h2>
     <i class="bi bi-journal-plus"></i>Manage Book Records

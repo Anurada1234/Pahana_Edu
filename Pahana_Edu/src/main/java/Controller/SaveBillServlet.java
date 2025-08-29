@@ -5,7 +5,6 @@ import model.BillBean;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
-
 import java.io.IOException;
 
 @WebServlet("/SaveBillServlet")
@@ -15,19 +14,24 @@ public class SaveBillServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        // Get parameters from form
         String itemCode = request.getParameter("itemCode");
         String title = request.getParameter("title");
         double price = Double.parseDouble(request.getParameter("price"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
+        String customerName = request.getParameter("CustomerName"); // <-- new parameter
         double total = price * quantity;
 
+        // Set data in BillBean
         BillBean bill = new BillBean();
         bill.setItemCode(itemCode);
         bill.setTitle(title);
         bill.setPrice(price);
         bill.setQuantity(quantity);
         bill.setTotal(total);
+        bill.setCustomerName(customerName); // <-- set customer name
 
+        // Save bill in database
         boolean success = BillingDao.saveBill(bill);
 
         if (success) {

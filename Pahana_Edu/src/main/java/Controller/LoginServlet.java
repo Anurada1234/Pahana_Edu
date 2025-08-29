@@ -3,7 +3,6 @@ package Controller;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
-import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -17,14 +16,18 @@ public class LoginServlet extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String remember = request.getParameter("remember"); // checkbox value
 
-        if (USERNAME.equals(username) && PASSWORD.equals(password)) {
+        // Check if username, password are correct AND checkbox is ticked
+        if (USERNAME.equals(username) && PASSWORD.equals(password) && "on".equals(remember)) {
             // Store user in session
             HttpSession session = request.getSession();
             session.setAttribute("user", username);
+
             response.sendRedirect("Views/dashboard.jsp");
         } else {
-            response.sendRedirect("index.jsp?error=invalid");
+            // If credentials correct but checkbox not ticked OR invalid credentials
+            response.sendRedirect("Views/index.jsp?error=invalid");
         }
     }
 }

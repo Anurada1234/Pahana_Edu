@@ -7,20 +7,21 @@ import model.BillBean;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
-
 import java.io.IOException;
 
 @WebServlet("/BillingServlet")
 public class BillingServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String itemCode = request.getParameter("itemCode");
         int quantity = Integer.parseInt(request.getParameter("quantity"));
+        String customerName = request.getParameter("customerName"); // <-- from dropdown
 
         BookBean book = BookDao.getBookByItemCode(itemCode);
 
-        if (book != null) {
+        if (book != null && customerName != null && !customerName.isEmpty()) {
             double price = book.getPrice();
             double total = price * quantity;
 
@@ -30,12 +31,12 @@ public class BillingServlet extends HttpServlet {
             bill.setPrice(price);
             bill.setQuantity(quantity);
             bill.setTotal(total);
+            bill.setCustomerName(customerName);
 
             BillingDao.saveBill(bill);
 
             request.setAttribute("bill", bill);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Views/billreceipt.jsp");
-            dispatcher.forward(request, response);
+            request.getRequestDispatcher("Views/billreceipt.jsp").forward(request, response);
         } else {
             response.sendRedirect("Views/billing.jsp?error=notfound");
         }

@@ -51,6 +51,13 @@
             gap: 12px;
             margin-top: 25px;
         }
+
+        /* Hide buttons when printing */
+        @media print {
+            .btn-group {
+                display: none !important;
+            }
+        }
     </style>
 
     <script>
@@ -65,6 +72,7 @@
         <hr>
 
         <div class="receipt-detail"><strong>Item Code:</strong> <%= bill.getItemCode() %></div>
+        <div class="receipt-detail"><strong>Customer:</strong> <%= bill.getCustomerName() %></div>
         <div class="receipt-detail"><strong>Title:</strong> <%= bill.getTitle() %></div>
         <div class="receipt-detail"><strong>Price:</strong> Rs. <%= bill.getPrice() %></div>
         <div class="receipt-detail"><strong>Quantity:</strong> <%= bill.getQuantity() %></div>
@@ -74,6 +82,7 @@
             <!-- Submit Button -->
             <form action="<%= request.getContextPath() %>/SaveBillServlet" method="post">
                 <input type="hidden" name="itemCode" value="<%= bill.getItemCode() %>"/>
+                <input type="hidden" name="CustomerName" value="<%= bill.getCustomerName() %>"/>
                 <input type="hidden" name="title" value="<%= bill.getTitle() %>"/>
                 <input type="hidden" name="price" value="<%= bill.getPrice() %>"/>
                 <input type="hidden" name="quantity" value="<%= bill.getQuantity() %>"/>

@@ -19,6 +19,7 @@
       justify-content: center;
       min-height: 100vh;
       margin: 0;
+      position: relative;
     }
     .card {
       background-color: rgba(255,255,255,0.95);
@@ -28,9 +29,20 @@
       max-width: 600px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+    }
   </style>
 </head>
 <body>
+  <!-- Back Button -->
+  <a href="dashboard.jsp" class="btn btn-outline-light back-btn">
+    <i class="bi bi-arrow-left-circle me-1"></i> Back
+  </a>
+
   <div class="card">
     <h3 class="text-center mb-4"><i class="bi bi-person-circle me-2"></i>Customer Management</h3>
 

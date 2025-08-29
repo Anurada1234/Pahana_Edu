@@ -150,11 +150,9 @@
         <button type="submit" class="btn btn-primary w-100" aria-label="Login button">Login</button>
       </form>
 <% if ("invalid".equals(request.getParameter("error"))) { %>
-    <p style="color:red;">Invalid credentials. Please try again.</p>
+    <p style="color:red;">Invalid credentials or checkbox not ticked. Please try again.</p>
   <% } %>
-      <div class="mt-4 text-center">
-        <a href="#" class="text-decoration-none">Forgot Password?</a>
-      </div>
+     
     </div>
   </main>
 

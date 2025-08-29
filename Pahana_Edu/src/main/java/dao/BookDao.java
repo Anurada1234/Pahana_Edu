@@ -16,6 +16,7 @@ public class BookDao {
         }
     }
 
+    // Save new book
     public static boolean saveItem(BookBean book) {
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
             String sql = "INSERT INTO books (item_code, title_name, author_name, publisher_name, price_value, quantity_value, cover_image) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -34,6 +35,7 @@ public class BookDao {
         }
     }
 
+    // Fetch book by item code (used in billing.jsp)
     public static BookBean getBookByItemCode(String itemCode) {
         BookBean book = null;
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
@@ -49,7 +51,7 @@ public class BookDao {
                 book.setPublisher(rs.getString("publisher_name"));
                 book.setPrice(rs.getDouble("price_value"));
                 book.setQuantity(rs.getInt("quantity_value"));
-                // You may skip image loading for simplicity
+                // Image is optional
             }
         } catch (Exception e) {
             System.out.println("Search error: " + e);
@@ -57,6 +59,7 @@ public class BookDao {
         return book;
     }
 
+    // Update book
     public static boolean updateItem(BookBean book) {
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
             String sql;
@@ -90,6 +93,7 @@ public class BookDao {
         }
     }
 
+    // Delete book
     public static boolean deleteItem(String itemCode) {
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
             String sql = "DELETE FROM books WHERE item_code = ?";

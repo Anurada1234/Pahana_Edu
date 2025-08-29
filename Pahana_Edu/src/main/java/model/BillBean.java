@@ -6,6 +6,7 @@ public class BillBean {
     private double price;
     private int quantity;
     private double total;
+    private String customerName; // <-- added
 
     // Getters & Setters
     public String getItemCode() { return itemCode; }
@@ -22,4 +23,7 @@ public class BillBean {
 
     public double getTotal() { return total; }
     public void setTotal(double total) { this.total = total; }
+
+    public String getCustomerName() { return customerName; }
+    public void setCustomerName(String customerName) { this.customerName = customerName; }
 }

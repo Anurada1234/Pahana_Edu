@@ -8,6 +8,7 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
 
   <style>
     body {
@@ -15,6 +16,15 @@
       background: #ffffff;
       margin: 0;
       min-height: 100vh;
+      position: relative;
+    }
+
+    /* Back button style */
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
     }
 
     .help-container {
@@ -35,7 +45,6 @@
       top: 0;
       height: 100vh;
       overflow-y: auto;
-
       margin-top: 40px;  
       margin-left: -50px; 
     }
@@ -156,6 +165,11 @@
 </head>
 <body>
 
+  <!-- Back Button Added -->
+  <a href="dashboard.jsp" class="btn btn-outline-dark back-btn">
+    <i class="bi bi-arrow-left-circle me-1"></i> Back
+  </a>
+
   <div class="help-container">
     <aside class="sidebar" aria-label="Help Topics">
       <h2>Help Topics</h2>
@@ -177,6 +191,7 @@
         <input type="search" id="helpSearch" placeholder="Search help topics..." aria-label="Search help topics" oninput="filterHelpTopics()" />
       </div>
 
+      <!-- All your existing help topics remain unchanged -->
       <section id="login" class="help-topic open">
         <h2 tabindex="0">Login Instructions</h2>
         <div class="help-topic-content">

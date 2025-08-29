@@ -150,8 +150,8 @@
       <img src="https://offloadmedia.feverup.com/secretldn.com/wp-content/uploads/2020/11/04035636/Bookshop.jpg" alt="" />
       <img src="https://img.freepik.com/premium-photo/book-table-with-many-books-background_1279559-20.jpg" alt="" />
       <div class="hero-content">
-        <h1 class="display-4">Welcome to Bookshop Billing</h1>
-        <p class="lead">Effortless invoice management for your bookstore</p>
+        <h1 class="display-4">Welcome to Pahana Edu Bookshop</h1>
+        <p class="lead">Quick and easy billing management for the store.</p>
         <a href="<%= request.getContextPath() %>/ShowCustomerServlet" class="btn btn-info me-2">
           <i class="bi bi-people me-1"></i> View All Customers
         </a>

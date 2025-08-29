@@ -22,6 +22,8 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            margin: 0;
+            position: relative;
         }
 
         .card {
@@ -52,9 +54,16 @@
             margin-top: 25px;
         }
 
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+
         /* Hide buttons when printing */
         @media print {
-            .btn-group {
+            .btn-group, .back-btn {
                 display: none !important;
             }
         }
@@ -67,6 +76,11 @@
     </script>
 </head>
 <body>
+    <!-- Back Button -->
+    <a href="Views/dashboard.jsp" class="btn btn-outline-light back-btn">
+        <i class="bi bi-arrow-left-circle me-1"></i> Back
+    </a>
+
     <div class="card">
         <h2 class="text-center"><i class="bi bi-receipt-cutoff me-2"></i>Bill Receipt – Pahana Bookshop</h2>
         <hr>

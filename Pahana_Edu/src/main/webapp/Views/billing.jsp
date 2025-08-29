@@ -35,9 +35,19 @@
             max-width: 600px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
     </style>
 </head>
 <body>
+<!-- Back Button -->
+<a href="dashboard.jsp" class="btn btn-outline-dark back-btn">
+    <i class="bi bi-arrow-left-circle"></i> Back
+</a>
+
 <div class="card">
     <h3 class="text-center mb-4"><i class="bi bi-receipt-cutoff me-2"></i>Generate Bill</h3>
 

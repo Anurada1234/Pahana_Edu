@@ -90,7 +90,7 @@
   <!-- Sidebar -->
   <nav id="sidebar" class="d-flex flex-column p-3">
     <a href="#" class="d-flex align-items-center mb-3 text-white text-decoration-none">
-      <i class="bi bi-book-half fs-4 me-2"></i><span class="fs-4">Bookshop</span>
+      <i class="bi bi-book-half fs-4 me-2"></i><span class="fs-4">Pahana Edu</span>
     </a>
     <hr />
     <ul class="nav nav-pills flex-column mb-auto">
@@ -174,7 +174,7 @@
       <footer class="container">
         <br><br>
         <small>
-          📍 No. 123, Your Street, Colombo • ☎️ +94 11 123 4567 • ✉️
+          📍 No. 123, Main Street, Colombo • ☎️ +94 11 123 4567 • ✉️
           <a href="mailto:info@pahanaedu.lk">info@pahanaedu.lk</a>
         </small>
       </footer>

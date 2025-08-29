@@ -21,6 +21,7 @@
       min-height: 100vh;
       margin: 0;
       padding: 20px;
+      position: relative;
     }
 
     .card {
@@ -45,9 +46,21 @@
       border-radius: 5px;
       object-fit: cover;
     }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+    }
   </style>
 </head>
 <body>
+  <!-- Back Button -->
+  <a href="Views/dashboard.jsp" class="btn btn-outline-light back-btn">
+    <i class="bi bi-arrow-left-circle me-1"></i> Back
+  </a>
+
   <div class="card">
     <h3 class="text-center mb-4">
       <i class="bi bi-book-half me-2"></i>All Book Records

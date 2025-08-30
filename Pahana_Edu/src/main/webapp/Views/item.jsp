@@ -74,7 +74,7 @@
 <body>
 
 <!-- Back Button -->
-<a href="dashboard.jsp" class="btn btn-outline-light back-btn">
+<a href="Views/dashboard.jsp" class="btn btn-outline-light back-btn">
   <i class="bi bi-arrow-left-circle me-1"></i> Back
 </a>
 
